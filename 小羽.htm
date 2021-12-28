@@ -1,0 +1,2368 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - CSS Off 2013 </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<meta charset="utf-8">
+        <title>CSS Off 2013 - Stephen Griffin - @notepadwebedv</title>
+        <meta name="description" content="Submission for CSS Off 2013 competition.">
+        <meta name="keywords" content="Triple Dare, web's messiest challenge, competition, prizes, obstacles">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,400,700|Lora:400italic,700italic|Oswald:400|Merriweather:300,700,900' rel='stylesheet' type='text/css'>
+        
+  
+  
+  
+<style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: #FFABFF;
+}
+
+body {
+  overflow-x: hidden;
+  font: normal 100%/1.4em 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  background: #fff;
+  perspective: 500px;
+  transition: background 1s;
+  /* Logo + Box Model pseudo backgrounds */
+  /* Logo bg */
+  /* Box Model bg */
+}
+body:before {
+  content: "";
+  width: 50%;
+  height: 35em;
+  /* vw fallback */
+  height: 50vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -5vw;
+  background: #FFABFF;
+  transform: scale(1);
+  transition: transform .5s ease-in;
+  transform-origin: 0px 0px;
+}
+body.is-resizing:before {
+  transform: scaleX(4);
+  transition: 0s 0s;
+}
+body:after {
+  display: none;
+  content: '';
+  width: 50%;
+  height: 21.7em;
+  position: absolute;
+  top: 45em;
+  /* vw fallback */
+  top: 60vw;
+  left: 0;
+  margin-left: -5vw;
+  border-top: 1px solid #cfcbde;
+  background: #FF59FF;
+  background: linear-gradient(to bottom, #d9d5e5, #cfcbde 50%, #cfcbde 90%);
+  backface-visibility: hidden;
+  transform: scale(1);
+  transition: transform .5s .7s ease-out;
+  transform-origin: 0% 0%;
+}
+body.is-loading {
+  background: #FF59FF;
+}
+body.is-loading:after {
+  opacity: 0;
+}
+
+h1 {
+  font: normal 400 1.4em/1.4em 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+address {
+  margin-bottom: 1em;
+  float: right;
+  text-align: right;
+  font: normal 300 .8em/1.6em 'Merriweather';
+}
+
+/* Header */
+.masthead {
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.masthead .edition {
+  max-width: 40%;
+  position: absolute;
+  top: 6em;
+  /* no vw fallback */
+  top: 7.3vw;
+  right: 10%;
+  display: block;
+  color: #FF59FF;
+  font: italic 400 .75em/1.2em 'Lora', serif;
+  letter-spacing: .2em;
+  text-align: right;
+  transition: 0.6s cubic-bezier(1, 0, 0, 1);
+}
+
+.logo {
+  position: relative;
+  display: block;
+  float: right;
+  padding: .1em 0;
+  color: #fff;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16em;
+  /* no vw fallback */
+  font-size: 23vw;
+  font-family: 'Lato';
+  line-height: 0.8em;
+  letter-spacing: .03em;
+  transition: transform .2s;
+}
+.logo span {
+  display: block;
+  letter-spacing: -.03em;
+}
+
+@media only screen and (min-width: 768px) {
+  body:before {
+    height: 45em;
+    height: 60vw;
+  }
+
+  body:after {
+    display: block;
+    height: 22.6em;
+  }
+}
+@media only screen and (min-width: 850px) {
+  body:after {
+    height: 19.9em;
+  }
+}
+@media only screen and (min-width: 1004px) {
+  body:after {
+    height: 16.9em;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  /* Max upper range for vw positioned elements */
+  body:before {
+    height: 43em;
+    margin-left: -4em;
+  }
+
+  body:after {
+    height: 21.7em;
+    top: 43em;
+    margin-left: -4em;
+  }
+
+  .is-resizing:before {
+    height: 300em;
+  }
+
+  .logo {
+    font-size: 18.4em;
+  }
+
+  .masthead .edition {
+    top: 6.5em;
+  }
+}
+/* Footer */
+.site-footer {
+  padding: 1em 0;
+  color: #8c8c8c;
+  border-top: 1px solid #ccc;
+  font: normal 300 1em/1.4em 'Merriweather';
+}
+.site-footer strong {
+  font-weight: 700;
+}
+.site-footer .edition {
+  color: rgba(0, 0, 0, 0.6);
+  font: normal 400 100%/1.4em 'Lato', sans-serif;
+}
+
+.lower-content-wrap {
+  opacity: 1;
+  transition: opacity 1s .5s;
+  /* fade in on page load */
+}
+
+/* Articles */
+/************************************************************************************/
+article {
+  position: relative;
+  margin-bottom: 2em;
+  transform: translate3d(0, 0%, 0);
+  transition: opacity 0s, transform 0.4s cubic-bezier(1, 0, 0, 1);
+}
+
+/*== Feature =================*/
+.feature {
+  top: -15vw;
+  margin-bottom: -15vw;
+  z-index: 1;
+}
+.feature figure {
+  max-width: 793px;
+  position: relative;
+  margin-bottom: -9.7em;
+  transform: rotate(-4deg);
+  /* shadow */
+  /* shield */
+}
+.feature figure:before {
+  content: '';
+  width: 45%;
+  height: 3em;
+  position: absolute;
+  left: -1em;
+  bottom: -2em;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 40% 60% 60% 40%;
+  box-shadow: 0px 0px 200px black;
+  opacity: .8;
+  -webkit-filter: blur(30px);
+  transform: rotateZ(4deg) rotateX(80deg);
+  transition: .6s linear;
+}
+.feature figure:after {
+  content: "";
+  width: 411px;
+  height: 188px;
+  position: absolute;
+  left: 1.7em;
+  bottom: -.5em;
+  z-index: 1;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/shield.png) no-repeat 0 0;
+  transform: rotate(4deg);
+  transition: .6s linear;
+}
+.feature figure:hover:before {
+  opacity: .2;
+  transform: rotateZ(4deg) rotateX(80deg) scaleX(1.6) translate3d(10%, 0, 0);
+}
+.feature figure:hover:after {
+  bottom: 1em;
+}
+.feature figure img {
+  max-width: 100%;
+  transition: 1s linear;
+}
+.feature figure img:hover {
+  transform: translate3d(0, -4%, 0);
+}
+.feature header, .feature p {
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+.feature h1 {
+  position: relative;
+  margin-bottom: .2em;
+  color: #FFA1FF;
+  font-size: 4.7em;
+  text-shadow: 0.5em 0.5em 0.5em #787878;
+  line-height: 1.1em;
+}
+.feature h1:before {
+  content: "Feature";
+  display: block;
+  color: #cbb8a0;
+  font: normal 700 14px/1.35em "Merriweather", serif;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  text-indent: 3px;
+}
+.feature p {
+  font: normal 300 1.55em/1.35em 'Merriweather', serif;
+  letter-spacing: -.03em;
+}
+
+@media only screen and (min-width: 768px) {
+  .feature {
+    width: 52%;
+    float: right;
+    top: -27vw;
+    margin-bottom: -27vw;
+    margin-right: .4em;
+  }
+  .feature header, .feature p {
+    max-width: 500px;
+  }
+
+  .feature figure {
+    width: 145%;
+    margin-left: -9.5vw;
+  }
+
+  .feature header,
+  .feature p {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .feature {
+    top: -21em;
+    margin-bottom: -20em;
+  }
+
+  .feature figure {
+    margin-left: -7.3em;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .feature h1 {
+    font-size: 4em;
+  }
+
+  .feature figure {
+    margin-bottom: -4.5em;
+  }
+}
+/*== Secondary ==============*/
+.secondary {
+  z-index: 3;
+  margin-top: 250px;
+  padding: 90px 0 0;
+  text-align: center;
+  background: #FFBFFF;
+  background: linear-gradient(to bottom, #d9d5e5, #cfcbde 50%, #cfcbde 90%, #FFBFFF 90%);
+}
+.secondary h1 {
+  text-transform: none;
+  color: #5f5d66;
+  font: italic 700 2.2em/1.4em 'Lora', serif;
+}
+.secondary figure {
+  max-width: 355px;
+  position: absolute;
+  top: -220px;
+  left: 50%;
+  margin-left: -100px;
+}
+.secondary figure img {
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.6);
+  transform-origin: center bottom;
+  transition: 3s;
+}
+.secondary figure img:nth-of-type(2) {
+  transition-delay: .2s;
+}
+.secondary .barbie-1 {
+  position: relative;
+  border: 6px solid #fff;
+  border-radius: 4px;
+}
+.secondary .barbie-2 {
+  position: absolute;
+  top: -15px;
+  left: -150px;
+  z-index: 0;
+}
+.secondary p {
+  width: 90%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: .2em 1em 0;
+  color: #6e6c77;
+  font: normal 400 1.15em/1.5em 'Lato', sans-serif;
+}
+.secondary p:before {
+  content: '';
+}
+
+@media only screen and (min-width: 768px) {
+  .secondary-wrap {
+    width: 47%;
+    position: relative;
+    left: -2vw;
+  }
+
+  article.secondary {
+    max-width: 400px;
+    position: absolute;
+    top: -6em;
+    right: 1vw;
+    margin-top: 280px;
+    background: none;
+  }
+  article.secondary figure {
+    -webkit-filter: drop-shadow(0px -5px 2px rgba(205, 201, 221, 0.8));
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=-5, Color='#FFABFF')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=-5, Color='#FFABFF')";
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .secondary {
+    top: -7em;
+    right: -3em;
+  }
+}
+/*== Bullet List ===========*/
+.bullet-list {
+  overflow: hidden;
+  z-index: 1;
+  /* Bullet images */
+  /* Text */
+}
+.bullet-list:after {
+  content: 'DRAG';
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  z-index: 2;
+  margin: 0 0 0 -2.5em;
+  color: #e0e0e0;
+  font: normal 400 1em/5em 'Oswald', sans-serif;
+  letter-spacing: .05em;
+  text-align: center;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #181818;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: .3s .5s;
+}
+.bullet-list.off-screen:after {
+  transform: translate3d(50em, 0, 0) scale(0);
+}
+.bullet-list.has-dragged:after {
+  transform: translate3d(-50em, 0, 0) scale(0);
+}
+.bullet-list:is-dragging .carousel {
+  background: #e0e0e0;
+}
+.bullet-list.show-1 ul {
+  width: 500%;
+}
+.bullet-list.show-2 ul {
+  width: 250%;
+}
+.bullet-list.show-3 ul {
+  width: 166.66666666666666666666666666667%;
+}
+.bullet-list.show-4 ul {
+  width: 125%;
+}
+.bullet-list.show-5 .carousel {
+  cursor: default;
+}
+.bullet-list.show-5 ul {
+  width: 100%;
+}
+.bullet-list.show-5:after {
+  display: none;
+}
+.bullet-list header {
+  padding: .9em 0 .5em;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.bullet-list h1 {
+  float: left;
+  margin-right: 1em;
+  color: #a97d35;
+  font: 400 .95em/1.4em 'Oswald', sans-serif;
+  white-space: nowrap;
+}
+.bullet-list h2 {
+  padding-top: .3em;
+  float: left;
+  color: #e0c167;
+  font: 400 .7em/1.4em 'Oswald', sans-serif;
+  letter-spacing: .2em;
+  text-align: left;
+}
+.bullet-list .carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: e-resize;
+}
+.bullet-list .carousel:before, .bullet-list .carousel:after {
+  content: '';
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+}
+.bullet-list .carousel:before {
+  left: -2px;
+}
+.bullet-list .carousel:after {
+  right: -2px;
+}
+.bullet-list ul {
+  min-width: 800px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+.bullet-list ul.trans {
+  transition: 0.5s cubic-bezier(1, 0, 0, 1);
+}
+.bullet-list li {
+  width: 18%;
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 65px 1% 9em;
+  background: #fff;
+  /* Seperating line */
+}
+.bullet-list li:before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #e5e5e5;
+}
+.bullet-list li:first-child:before {
+  display: none;
+}
+.bullet-list li:hover .bullet.large {
+  transform: scale(1.2) translate3d(10px, 20px, 0);
+  -webkit-filter: drop-shadow(8px 10px 4px rgba(0, 0, 0, 0.1));
+}
+.bullet-list li:hover .bullet.small {
+  opacity: 0;
+  transform: translateZ(0);
+}
+.bullet-list .img-wrap {
+  min-height: 100vw;
+}
+.bullet-list .bullet {
+  position: relative;
+  -webkit-filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.2));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=6, Color='#e3e3e3')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=6, Color='#e3e3e3')";
+  transition: .2s;
+}
+.bullet-list .large {
+  left: 50%;
+  margin-left: -2.5em;
+  z-index: 1;
+}
+.bullet-list .small {
+  position: absolute;
+  top: 65px;
+  right: 50%;
+  margin-right: -3em;
+  z-index: 0;
+}
+.bullet-list .text-wrap {
+  width: 100%;
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  font: normal 400 2.5em/.7em 'Oswald', sans-serif;
+}
+.bullet-list span {
+  display: block;
+  color: #e0e0e0;
+  line-height: 1em;
+  text-align: center;
+}
+.bullet-list .calibre {
+  font-size: 2em;
+}
+.bullet-list .name {
+  font-size: .7em;
+  text-transform: uppercase;
+}
+.bullet-list .details {
+  font-size: .8em;
+}
+.bullet-list .remington:hover .small {
+  margin: 0 0 0 -25px;
+}
+.bullet-list .winchester {
+  padding-top: 10px;
+}
+.bullet-list .winchester .small {
+  top: 10px;
+}
+.bullet-list .winchester:hover .small {
+  margin: 0 0 0 -10px;
+}
+.bullet-list .russian .calibre {
+  font-size: .75em;
+}
+.bullet-list .russian .name {
+  font-size: 1em;
+}
+.bullet-list .russian .details {
+  font-size: .97em;
+}
+.bullet-list .russian:hover .small {
+  margin: 0 0 0 -5px;
+}
+.bullet-list .thumper .name {
+  font-size: .85em;
+}
+.bullet-list .thumper:hover .small {
+  margin: 0 0 0 -18px;
+}
+.bullet-list ._220 .details {
+  font-size: .9em;
+}
+
+@media only screen and (min-width: 390px) {
+  .bullet-list {
+    float: right;
+    width: calc(100% - 7.4em - 20px);
+  }
+}
+/*== Thin float ============*/
+.thin-float {
+  z-index: 2;
+}
+.thin-float h1 {
+  margin: 0 0 .5em 0;
+  color: #24795a;
+  font-size: 1.3em;
+  text-transform: none;
+  letter-spacing: -.02em;
+}
+.thin-float p {
+  width: 100%;
+  float: none;
+  color: #464646;
+  font: normal 700 .8em/1.5em 'Lato', sans-serif;
+}
+.thin-float figure {
+  max-width: 148px;
+  position: relative;
+  left: auto;
+  bottom: auto;
+}
+
+@media only screen and (min-width: 390px) {
+  .thin-float {
+    max-width: 7.6em;
+    margin: 0 1em 2em 0;
+    float: right;
+    text-align: right;
+  }
+}
+/*== Beatles Google map ====*/
+.map {
+  clear: both;
+  top: -4em;
+  margin-bottom: -4em;
+  z-index: 1;
+  overflow: hidden;
+  color: #fff;
+  background: #71625a;
+}
+.map .aspect-ratio {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 65.55%;
+  overflow: hidden;
+}
+.map h1 {
+  padding: .6em .2em;
+  text-align: center;
+  font-size: 3em;
+  line-height: 1.2em;
+}
+.map figure {
+  position: relative;
+}
+.map #gmap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #ccc;
+}
+.map #gmap p {
+  color: #181818;
+}
+.map .img-mask {
+  width: 117.70833333333333333333333333333%;
+  /* 1130 / 960 */
+  height: 179.65023847376788553259141494436%;
+  /* 1130 / 629 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  background: #71625a;
+  background-size: 100%;
+  clip: rect(0px auto auto 0px);
+  transform: rotate(45deg) translate3d(-21%, -10%, 0);
+  transition: .5s;
+}
+.map .img-mask img {
+  width: 84.966752212389380530973451327434%;
+  /* 960 / 1130 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(-45deg);
+}
+.map #svg-flap {
+  width: 128px;
+  height: 128px;
+  position: absolute;
+  left: 86.5%;
+  top: 39.557522123893805309734513274336%;
+  z-index: 4;
+  cursor: pointer;
+  transition: .5s;
+}
+.map #svg-flap #group-flap {
+  transform-origin: 50% 50%;
+  animation: flap-3d 2s infinite alternate;
+  transition: 1s;
+}
+.map .paper {
+  display: block;
+  position: absolute;
+  left: 93%;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  background: #6b5d56;
+  z-index: 3;
+  transition: .5s;
+}
+.map.show-map .img-mask {
+  clip: rect(0px 128px auto 0px) !important;
+  background-position: -100% 0;
+}
+.map.show-map #svg-flap {
+  left: 0;
+  opacity: .2;
+  top: 60.442477876106194690265486725664%;
+  transform: scale(1);
+  transition-delay: 0s;
+}
+.map.show-map .paper {
+  left: 0;
+}
+.map.show-map .paper:after {
+  content: 'VIEW PHOTO';
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  top: 60.442477876106194690265486725664%;
+  left: 50%;
+  margin: -2em 0 0 -2em;
+  color: #e0e0e0;
+  font: normal 400 1em/1.2em 'Oswald', sans-serif;
+  letter-spacing: .05em;
+  text-align: center;
+  pointer-events: none;
+  transform: rotate(-45deg);
+}
+.map figcaption {
+  padding: 1em;
+  font: normal 300 1.55em/1.35em 'Merriweather', serif;
+}
+.map p {
+  color: #fff;
+  margin-bottom: .8em;
+}
+.map cite {
+  color: #b8b1ad;
+  font-size: .75em;
+}
+.map cite a {
+  color: #b8b1ad;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .map #svg-flap {
+    left: 84.5%;
+  }
+}
+@media only screen and (min-width: 880px) {
+  .map #svg-flap {
+    left: 85.5%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .map #svg-flap {
+    left: 86.5%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .map #svg-flap {
+    left: 86%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .map.show-map .img-mask {
+    background: transparent;
+  }
+  .map.show-map .img-mask img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .map.show-map .paper:after {
+    content: "X";
+    margin: -1.3em 0 0 -1em;
+  }
+  .map.show-map .img-mask,
+  .map.show-map #svg-flap,
+  .map.show-map .paper {
+    transition: 0s;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .map figcaption {
+    font-size: 1.2em;
+  }
+}
+/*== Border Bottom Line ===*/
+.fact-list h1 {
+  padding: 0 0 0.3em;
+  font-size: 5.05em;
+  font-weight: 500;
+  line-height: 1em;
+  border-bottom: .26em solid #000;
+}
+.fact-list h2 {
+  width: 103%;
+  padding: .6em 0;
+  font-size: 2.3em;
+  font-weight: 700;
+  letter-spacing: -.043em;
+  line-height: 1.1em;
+  text-transform: none;
+}
+.fact-list .heads {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  top: -1px;
+  overflow: hidden;
+  transform-origin: left top;
+}
+.fact-list .heads li {
+  min-height: 165px;
+  position: absolute;
+  float: left;
+  background-size: 100%;
+  transition: 0.4s cubic-bezier(1, 0, 0, 1);
+}
+.fact-list .heads li:nth-child(1) {
+  left: 0;
+}
+.fact-list .heads li:nth-child(2) {
+  left: 25%;
+}
+.fact-list .heads li:nth-child(3) {
+  right: 25%;
+}
+.fact-list .heads li:nth-child(4) {
+  right: 0;
+}
+.fact-list .inline-list {
+  border-top: 3px solid #000;
+  padding-top: 1em;
+}
+.fact-list .inline-list li {
+  display: inline;
+  position: relative;
+  padding-left: 1.2em;
+  font: normal 300 1.3em/1.35em 'Merriweather', serif;
+}
+.fact-list .inline-list li:before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: .4em;
+  left: .4em;
+  border-radius: 50%;
+  background: #000;
+}
+.fact-list .inline-list li:first-child {
+  padding-left: 0;
+}
+.fact-list .inline-list li:first-child:before {
+  display: none;
+}
+.fact-list .country {
+  font-weight: 900;
+}
+
+@media only screen and (min-width: 768px) {
+  .fact-list {
+    float: left;
+    width: calc(100% - 230px - 2em);
+  }
+
+  .fact-list .heads {
+    width: 105%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .fact-list h1 {
+    font-size: 5em;
+  }
+}
+@media only screen and (max-width: 1212px) {
+  .fact-list h1 {
+    font-size: 4.6em;
+  }
+
+  .fact-list h2 {
+    width: 100%;
+  }
+
+  .heads {
+    transform: scale(1);
+  }
+}
+@media only screen and (max-width: 1136px) {
+  .fact-list h1 {
+    font-size: 3.9em;
+  }
+}
+@media only screen and (min-width: 500px) and (max-width: 990px) {
+  .fact-list h1 {
+    font-size: 4.2em;
+  }
+
+  .fact-list .heads li:nth-child(1) {
+    left: 0;
+  }
+  .fact-list .heads li:nth-child(2) {
+    left: 54%;
+    transform: translateX(-50%);
+  }
+  .fact-list .heads li:nth-child(3) {
+    right: 0;
+  }
+  .fact-list .heads li:nth-child(4) {
+    transform: translate3d(0, -200px, 0);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .fact-list h1 {
+    padding-top: .5em;
+    font-size: 3em;
+  }
+  .fact-list h2 {
+    font-size: 1.8em;
+  }
+  .fact-list .heads {
+    display: none;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .fact-list h1 {
+    padding-top: .5em;
+    font-size: 2em;
+  }
+  .fact-list .no-widows {
+    white-space: normal;
+  }
+}
+/*== Transformers ========*/
+.movie {
+  max-width: 230px;
+  position: relative;
+  margin: 6em auto 2em;
+  color: #fff;
+  background: #3a83bb;
+}
+.movie:after {
+  content: '';
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  bottom: -1em;
+  left: 50%;
+  margin: 0 0 0 -1em;
+  border-radius: 50%;
+  background: #fff;
+}
+.movie article {
+  position: relative;
+  margin-bottom: 0;
+  padding: 1em .8em;
+}
+.movie .review {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/dashed_1.png) repeat-x left bottom;
+  /* shadow */
+}
+.movie .review .img-wrap {
+  position: relative;
+}
+.movie .review .img-wrap:before {
+  content: '';
+  width: 100%;
+  height: 5em;
+  position: absolute;
+  left: 0em;
+  bottom: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 40% 60% 60% 40%;
+  box-shadow: 0px 0px 200px black;
+  opacity: .8;
+  -webkit-filter: blur(30px);
+  transform: rotateZ(-4deg) rotateX(80deg);
+  transition: .6s linear;
+}
+.movie .review img {
+  width: 192px;
+  position: relative;
+  top: -85px;
+  left: 50%;
+  display: block;
+  margin: 0 0 -75px -92px;
+}
+.movie .review header {
+  margin-top: 1em;
+  text-align: center;
+}
+.movie .review h1 {
+  font-size: 2em;
+  line-height: 1em;
+}
+.movie .review h1 span {
+  display: block;
+  font-size: .7em;
+  letter-spacing: 0em;
+  margin-bottom: .6em;
+  padding-bottom: .5em;
+  border-bottom: 8px solid #619cc9;
+}
+.movie .review p {
+  margin-bottom: 1em;
+  font: italic 400 1em/1.5em 'Lora', serif;
+}
+.movie .rating {
+  position: relative;
+  padding-bottom: 2.4em !important;
+  overflow: hidden;
+  letter-spacing: -.05em;
+  border-top: 5px solid #3476a8;
+  border-bottom: 5px solid #3476a8;
+}
+.movie .rating:before, .movie .rating:after {
+  content: '';
+  display: block;
+  width: 86%;
+  height: .5em;
+  position: absolute;
+  bottom: 1.4em;
+  left: 6%;
+  background: #619cc9;
+  transition: 0.4s 0.8s cubic-bezier(1, 0, 0, 1);
+}
+.movie .rating:after {
+  background: #fff;
+  width: 23.255813953488372093023255813953%;
+  /* 20% / 86% */
+  transition: .8s 1.4s ease-out;
+}
+.movie .rating.off-screen:before {
+  transform: scale(0);
+  transition-delay: 0s;
+}
+.movie .rating.off-screen:after {
+  width: 0;
+  transition-delay: 0s;
+}
+.movie .rating p {
+  width: 50%;
+  float: left;
+  margin-right: 1em;
+  color: #88aed1;
+  font-size: .8em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.movie .rating p span {
+  display: block;
+  font-size: 2.3em;
+}
+.movie .rating .score {
+  position: relative;
+  float: left;
+  margin-top: .3em;
+  font-size: 3em;
+  font-weight: bold;
+}
+.movie .rating .score .perc {
+  font-size: .8em;
+}
+.movie .event {
+  overflow: hidden;
+  text-align: center;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/dashed_1.png) repeat-x left top;
+}
+.movie .event.off-screen span {
+  transition: 0s;
+}
+.movie .event.off-screen .venue {
+  transform: translate3d(-150%, 0, 0);
+}
+.movie .event.off-screen .location {
+  transform: translate3d(150%, 0, 0);
+}
+.movie .event.off-screen .date {
+  transform: translate3d(0, 150%, 0);
+}
+.movie .event h1 {
+  margin-bottom: .2em;
+  font-size: .9em;
+  line-height: 1em;
+  color: #88aed1;
+  background: #88aed1;
+}
+.movie .event h1 i {
+  padding: 0 .7em;
+  display: inline-block;
+  background: #3a83bb;
+}
+.movie .event span {
+  display: block;
+  width: 110%;
+  margin-left: -5%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+.movie .event .venue {
+  font-size: 1.3em;
+  transition: 0.4s 1s cubic-bezier(1, 0.01, 0.3, 1);
+}
+.movie .event .location {
+  font-size: 1.4em;
+  color: #FFBFFF;
+  transition: 0.6s 1.3s cubic-bezier(1, 0.01, 0.3, 1);
+}
+.movie .event .date {
+  font-size: 2em;
+  padding-bottom: .5em;
+  transition: 0.8s 1.7s cubic-bezier(1, 0.01, 0.3, 1);
+}
+
+@media only screen and (min-width: 768px) {
+  .movie {
+    width: 230px;
+    float: left;
+    margin: 1em 0 1em 2em;
+    z-index: 2;
+  }
+
+  .movie:before {
+    content: "";
+    width: 1px;
+    height: 90%;
+    position: absolute;
+    top: -1em;
+    left: -1em;
+    background: #e3e3e3;
+  }
+}
+/*== Overflow ============*/
+.overflow {
+  position: relative;
+  padding-top: 6vw;
+  clear: both;
+  z-index: 2;
+  color: #5e6c74;
+  animation: tilting 12s infinite alternate;
+}
+.overflow:hover ul {
+  animation-play-state: paused;
+}
+.overflow:before {
+  content: "";
+  width: 120%;
+  height: 400px;
+  position: absolute;
+  top: -4vw;
+  left: -8%;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/overflow-water_1.png) no-repeat center top;
+  background-size: 100%;
+  animation: hue-rotate 20s infinite alternate;
+}
+.overflow.off-screen ul li {
+  max-height: 0 !important;
+  margin: 0;
+  transform: translate3d(0, 20em, 0) scale(0);
+  transition-delay: 0s;
+}
+.overflow h1 {
+  visibility: hidden;
+}
+.overflow ul {
+  margin: 2em 0;
+  animation: floating 5s alternate infinite;
+}
+.overflow li {
+  width: 77%;
+  max-height: 40em;
+  display: block;
+  position: relative;
+  clear: both;
+  font: italic 400 1em/1.4em "Lora", serif;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: 0.4s cubic-bezier(0.96, 0.12, 0.86, 0.22);
+}
+.overflow li q {
+  display: block;
+  transition: 0.6s cubic-bezier(1, 0, 0, 1);
+}
+.overflow li q:hover {
+  transform: rotate(0deg) scale(1.1) !important;
+}
+.overflow li:nth-child(1) {
+  float: right;
+  text-align: right;
+  transition-delay: 1s;
+}
+.overflow li:nth-child(1) q {
+  transform: rotate(2deg);
+}
+.overflow li:nth-child(2) {
+  width: 69%;
+  transition-delay: 2s;
+}
+.overflow li:nth-child(2) q {
+  transform: rotate(-2deg);
+}
+.overflow li:nth-child(3) {
+  margin: 2em auto;
+  transition-delay: 3s;
+}
+.overflow li:nth-child(3) q {
+  transform: rotate(1deg);
+}
+
+@media only screen and (max-width: 1080px) {
+  .overflow li:first-child {
+    margin-bottom: 1em;
+  }
+}
+/* States */
+/************************************************************************************/
+.is-loading,
+.is-resizing {
+  overflow: hidden;
+}
+.is-loading .logo,
+.is-resizing .logo {
+  transform: translate3d(50%, 0, 0);
+}
+.is-loading .site-footer,
+.is-resizing .site-footer {
+  display: none;
+}
+
+.is-loading .logo span:after {
+  content: '2013';
+  position: relative;
+  left: 0;
+  display: block;
+  font-size: .82em;
+  transform: rotate3d(-1, 0, 0, 90deg);
+  transform-origin: center top;
+  transition: transform .5s 0s, left .3s 1s;
+}
+.is-loading .edition {
+  transform: translate3d(0, -100em, 0);
+}
+.is-loading .feature,
+.is-loading .secondary-wrap {
+  opacity: 0;
+  transform: translate3d(0, 200%, 0);
+}
+.is-loading .lower-content-wrap {
+  opacity: 0;
+}
+
+.is-resizing {
+  background: #FFABFF;
+  transition: background 0s;
+}
+.is-resizing:after {
+  background: #FFABFF;
+  transform: rotate3d(1, 0, 0, 90deg);
+  transform-origin: top left;
+  transition: 0s 0s;
+}
+.is-resizing .edition {
+  transform: translate3d(0, -100em, 0);
+}
+.is-resizing article {
+  opacity: .14;
+  transition: .6s;
+}
+.is-resizing .map #svg-flap {
+  display: none;
+}
+.is-resizing .movie {
+  background: none;
+}
+
+.is-scrolling-up svg,
+.is-scrolling-down svg {
+  display: none;
+}
+
+.is-scrolling-up figure img.barbie-1 {
+  transform: rotate3d(1, 0, 0, -25deg) scale(0.9);
+}
+.is-scrolling-up figure img.barbie-2 {
+  transform: rotate3d(1, 0, 0, -10deg) scale(0.9);
+}
+
+figure img
+.is-scrolling-down.barbie-1 {
+  transform: rotate3d(1, 0, 0, 10deg) scale(0.9);
+}
+.is-scrolling-down.barbie-2 {
+  transform: rotate3d(1, 0, 0, 25deg) scale(0.9);
+}
+
+.remove-2013 .logo span:after {
+  transform: rotate3d(0, 0, 0, 0deg);
+  left: 300%;
+}
+
+/* Utils */
+/************************************************************************************/
+.site-width {
+  width: 80%;
+  max-width: 960px;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+.halfscreen {
+  width: 50%;
+}
+
+.centered {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.no-widows {
+  white-space: nowrap;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/* Animations */
+/************************************************************************************/
+@keyframes floating {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -4%, 0);
+  }
+}
+@keyframes tilting {
+  from {
+    transform: rotate3d(0.2, 0, 1, 3deg);
+  }
+  to {
+    transform: rotate3d(0, -0.3, -1, 3deg);
+  }
+}
+@keyframes flap-3d {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  10% {
+    transform: rotate3d(-0.5, 0.5, 0, 30deg) scale(1.1);
+  }
+  20% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+}
+@-webkit-keyframes hue-rotate {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-60deg);
+  }
+}
+/* Fallbacks */
+/************************************************************************************/
+.no-js .is-loading {
+  overflow: auto;
+  background: #fff;
+}
+.no-js .is-loading .noscript {
+  position: relative;
+  z-index: 5;
+  padding: .6em 2em;
+  background: red;
+}
+.no-js .is-loading .noscript p {
+  position: relative;
+  margin: 0;
+  line-height: 1.4em;
+  color: #fff;
+  font-size: 100%;
+  text-align: center;
+}
+.no-js .is-loading * {
+  opacity: 1;
+  transform: none !important;
+}
+.no-js .is-loading .logo {
+  transform: none;
+}
+.no-js .is-loading .site-footer {
+  display: block;
+}
+.no-js .is-loading .bullet-list:after {
+  display: none;
+}
+.no-js .is-loading .bullet-list:hover .bullet {
+  transition: none;
+  transform: none;
+}
+.no-js .is-loading .map .img-mask {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/abbey-road.jpg) no-repeat 0 0;
+}
+.no-js .is-loading #svg-flap {
+  display: none;
+}
+
+.no-flexbox .bullet-list .carousel {
+  height: 420px;
+  overflow: hidden;
+}
+
+.no-csstransforms3d .feature figure:before {
+  width: 404px;
+  bottom: -3em;
+  box-shadow: none;
+  background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/shadow-fallback.png) no-repeat center center;
+  background-size: 100%;
+  transform: rotate(4deg);
+}
+
+.lt-ie9 body {
+  overflow: auto !important;
+}
+
+.lt-ie9 body:before {
+  min-width: 520px;
+}
+
+.lt-ie9 .masthead {
+  min-width: 800px;
+}
+
+/* Print */
+/************************************************************************************/
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* 
+   * Don't show links for images, or javascript/internal links 
+   */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  *:before,
+  *:after,
+  .heads {
+    display: none;
+  }
+
+  .logo {
+    font-size: 4em;
+    color: #000;
+  }
+
+  .feature {
+    top: 0;
+  }
+
+  .feature figure {
+    margin-top: 1em 0 -4em;
+    transform: scale(0.6);
+  }
+
+  .movie,
+  .movie .event span {
+    color: #000 !important;
+  }
+
+  .overflow:before {
+    display: block;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBN9v35_-zOJrvHYSo46H-OiIPPEWQVXA&amp;sensor=false"></script>
+
+        <!-- Masthead -->
+        <header class="masthead clearfix">
+            <!-- logo -->
+            <div class="halfscreen">
+                <div id="logo" class="logo">小羽 <span>羽芝</span></div>
+            </div>
+            <!-- edition info -->
+            <div class="site-width">
+                <div class="edition">
+                    <span>Volume 1 &mdash;</span>
+                    <span> March 2016</span>
+                </div>
+            </div>
+        </header>
+
+        <noscript>
+            <div class="noscript">
+                <p>這個網站打開 讓您知道其實世界 會更好！</p>
+            </div>
+        </noscript>
+
+        <!-- Positioning Relatives -->
+        <article class="feature">
+            <figure>
+                <img src="img/小羽-3.jpg" alt="Photomontage created by Henry Peach Robinson" />
+            </figure>
+            <header>
+                <h1>---神話婚紗--- 白衣天使</h1>
+            </header>
+            <p>
+                您已經悄悄的離開我們了. . . . .感謝您的出現，以溫暖的微笑照亮您身邊的所有人，致我心中永遠的精靈公主 您的離去讓所有人萬分不捨，您很努力地去追求自己的人生，用僅有的青春盡情揮灑，您的生命是多麼燦爛美麗 相信您在另一個世界也會這麼美麗自信，我最美的朋友                                                                                    <br>
+                <br>
+                <br>
+                <br>                                                                                        
+            </p>
+        </article>
+
+        <!-- Box Model -->
+        <div class="secondary-wrap clearfix">
+            <article class="secondary">
+                <figure>
+                    <img class="barbie-2" src="img/小羽-2.jpg" alt="Barbie presentation box lid" />
+                    <img class="barbie-1" src="img/小羽-1.jpg" alt="Barbie doll in presentation box" />
+                </figure>
+                <header>
+                  <br>
+                    <h1>羽芝 Model</h1>
+                </header>
+                <p>
+                    1992年出生於台灣這個美麗的國家<br>
+                    是一位美麗的白羊座女孩->3月29日<br>
+                    熱愛於舞蹈以及化妝<br>
+
+                </p>
+            </article>
+        </div>
+
+        <div class="site-width lower-content-wrap">
+                
+            <!-- Bullet List -->
+            <article class="bullet-list">
+                <header>
+                    <div class="centered clearfix">
+                        <h1>作品展示：化裝舞會</h1>
+                        <h2>~流行化裝舞會總覽~</h2>
+                    </div>
+                </header>
+                <div class="carousel">
+                    <ul class="clearfix">
+                        <li class="remington">
+                            <div class="text-wrap">
+                                <span class="calibre">2018</span> 
+                                <span class="name">April</span> 
+                                <span class="details">10th</span>
+                            </div>
+                            <img class="bullet large" src="img/小羽-2016.jpg" alt="" />
+                            <img class="bullet small" src="" alt="" />
+                        </li>
+                        <li class="winchester">
+                            <div class="text-wrap">
+                                <span class="calibre">.2018</span> 
+                                <span class="name">April</span> 
+                                <span class="details">14</span>
+                            </div>
+                            <img class="bullet large" src="img/小羽-2019.jpg" alt="" />
+                            <img class="bullet small" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/bullet-2-small_1.png" alt="" />
+                        </li>
+                        <li class="russian">
+                            <div class="text-wrap">
+                                <span class="calibre">2018</span> 
+                                <span class="name">April</span> 
+                                <span class="details">10th</span>
+                            </div>
+                            <img class="bullet large" src="img/小羽-2017.jpg" alt="" />
+                            <img class="bullet small" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/bullet-3-small_1.png" alt="" />
+                        </li>
+                        <li class="thumper _220">
+                            <div class="text-wrap">
+                                <span class="calibre">2018</span> 
+                                <span class="name">April</span> 
+                                <span class="details">6th</span>
+                            </div>
+                            <img class="bullet large" src="img/小羽-2018.jpg" alt="" />
+                            <img class="bullet small" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/bullet-4-small_1.png" alt="" />
+                        </li>
+                        <li class="thumper _240">
+                            <div class="text-wrap">
+                                <span class="calibre">2016</span> 
+                                <span class="name">February</span> 
+                                <span class="details">16th</span>
+                            </div>
+                            <img class="bullet large" src="img/小羽-2015.jpg" alt="" />
+                            <img class="bullet small" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/90858/bullet-5-small_1.png" alt="" />
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Staying Afloat -->
+            <article class="thin-float clearfix">
+                <h1>Rainmaker<br>造雨人服飾</h1>
+                <p>
+                  <br>
+                  <br>
+                    妳要笑得燦爛<br>
+                    只有笑容能像<br>
+                    陽光一樣的驅趕黑暗🔆
+                  <br>
+                  <br>
+                </p>
+                <figure>
+                    <img src="img/小羽-2014.PNG" alt="Pair of wellington boots photo" />
+                </figure> 
+            </article>
+
+            <!-- Displaying (Famous) Blocks - Abbey Road -->
+            <article class="map">
+                <header>
+                    <h1>【彼此的依靠】</h1>
+                </header>
+                <figure>
+                    <div class="aspect-ratio">
+                        <!-- Google Map -->
+                        <div id="gmap"></div>   
+                        <!-- Mask for Abbey Road image -->
+                        <div class="img-mask">
+                            <img src="img/小羽-2020.jpg" alt="Photo of The beatles crossing Abbey Road." />
+                            <!-- Folded edge -->
+                            <svg id="svg-flap" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="FlapGradient" x1="0%" y1="0%" x2="50%" y2="50%">
+                                        <stop offset="5%" stop-color="#a49892" />
+                                        <stop offset="95%" stop-color="#6b5d56" />
+                                    </linearGradient>
+                                </defs>
+                                <g id="group-flap">
+                                    <polygon points="128,0 0,0 0,128" fill="url(#FlapGradient)" />
+                                    <line x1="125" y1="0" x2="0" y2="125" stroke-width="1" stroke="#837771" />
+                                </g>
+                            </svg>
+                            <span class="paper"></span>
+                        </div>
+                    </div>
+                    <figcaption>
+                        <p>
+                            這年頭，閨蜜才是王道 ❤<br>
+                            珍惜那位在妳哭在妳笑都不離不棄的女人<br>
+                            那才是真愛呀呀呀！<br>
+                            想拍「閨蜜寫真」請選<br>
+                            太極影像藝術Style 千慈Tzu / TORI.K Studio
+                        </p>
+                        <cite>Photo: <a href="https://goo.gl/h44dc9">蕭羽芝</a></cite>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <!-- Border Bottom Line -->
+            <article class="fact-list">
+                <header>
+                    <h1>beautiful <span class="no-widows">moments</span></h1>
+                    <h2>A great life doesn ' t <span class="no-widows">happen by accident.</span></h2>
+                </header>
+                <ul class="inline-list">
+                    <li>
+                        <strong class="country">YEARNING</strong> 世界有很多我們必須去接受的事情 比如說失去或者受傷 但是一旦發生了就必然接受 過度的悲傷會讓您造成不捨 只能跟您說聲再見<BR>
+                    </li>
+                    <li>
+                        <strong class="country">LOVE</strong> 感恩您的出現 您用生命告訴了我們什麼叫努力 您用力地綻放出每分每秒的青春 您的精神永遠存在
+
+                    </li>
+                    <li>
+                        <strong class="country">HAPPY</strong> 快樂的時光總是短暫的 因為短暫而忽略了珍惜 最終成為了回憶
+                    </li>
+                    <li>
+                        <strong class="country">HOPE</strong> 沒有人活在過去跟未來 只有當下 
+                    </li>
+                    <li>
+                        <strong class="country">SORRY</strong> 未完成
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Transformers. Revenge of the Fallen. -->
+            <aside class="movie" itemscope itemtype="http://www.schema.org/Movie">
+                
+                <article class="review" itemscope itemtype="http://www.schema.org/Review">
+                    <div class="img-wrap">
+                        <img itemprop="image" src="img/小羽-033.jpg" alt="" />
+                    </div>
+                    <header>
+                        <h1 itemprop="name">妳要笑得燦爛 <span>Only a smile can be like sunshine.</span></h1>
+                    </header>
+                    <p itemprop="description"></p>  
+                </article> 
+                
+                <article class="rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <p> <span></span></p> 
+                    
+                </article>
+                
+                <article class="event" itemscope itemtype="http://schema.org/Event">
+                    <h1 itemprop="name"><i></i></h1>
+                    <div itemprop="location">
+                        <span class="venue"></span>
+                        <span class="location"></span>
+                    </div>
+                    <span class="date" itemprop="startDate"></span>
+                </article>
+            </aside>
+
+            <!-- Overflow -->
+            <section class="overflow">
+                <header>
+                    <h1></h1>
+                </header>
+                <ul>
+                    <li><q>
+                         <span class="no-widows"></span> <br />
+                        <span class="no-widows"></span>
+                    </q></li>
+                    <li><q>
+                         <span class="no-widows"></span> <br />
+                        <span class="no-widows"></span>
+                    </q></li>
+                    <li><q>
+                         <span class="no-widows"></span> <br />
+                        <span class="no-widows"></span>
+                    </q></li>
+                </ul>
+            </section>
+
+            <footer class="site-footer clearfix"  itemscope itemtype="http://schema.org/Organization">
+                <address itemprop="address">
+                    <strong>Route Gregory</strong>, Building 31<br />
+                    01630 Prévessin-Moëns, France<br />
+                    <span class="telephone">+41 22 767 61 11</span>
+                </address>
+                <div class="edition">
+                    <strong itemprop="brand">2021 小羽</strong>, Volume 1
+                </div>
+            </footer>
+
+        </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <script id="rendered-js" >
+/**
+ * Custom jQuery plugin for mouse or touch supported adaptive horizontal carousel. (Used for the Bullet List block.)
+ * @param {css selector} options.wrapSelector The wrapper element for this widget.
+ * @param {css selector} options.slideSelector Selector for all the items in our carousel.
+ */
+(function ($) {
+  $.fn.swipe = function (options) {
+    return this.each(function () {
+      var el = $(this);
+      if (el.data('swipe')) return;
+      var elem = new swipe(this, options);
+      el.data('swipe', elem);
+      elem.init();
+    });
+  };
+
+  var swipe = function (el, options) {
+
+    var settings = $.extend({
+      wrapSelector: '.swipe-wrap',
+      slideSelector: '.slide' },
+    options || {});
+
+    /** @properties */
+    var obj = this,
+    elem = $(el),
+    isTouch = ('ontouchstart' in document.documentElement),
+    wrapElem = elem.closest(settings.wrapSelector),
+    slides = elem.find(settings.slideSelector),
+    defaultWidth = slides.first().outerWidth(),
+    slideWidth = 0,
+    elemOrigin = 0,
+    touchOrigin = 0,
+    currSlide = 0,
+    dragAmt = 0,
+    amtVisible = 0,
+    dragging,slideChanged,cycleDir,resizeTimeout;
+
+    /** @constructor */
+    this.init = function () {
+      var events = isTouch ? { start: 'touchstart', end: 'touchend', during: 'touchmove' } : { start: 'mousedown', end: 'mouseup', during: 'mousemove' };
+      el.addEventListener(events.start, obj.startDrag, false);
+      el.addEventListener(events.during, obj.duringDrag, false);
+      el.addEventListener(events.end, obj.endDrag, false);
+
+      $(window).
+      on('resize.swipe', this.onResize);
+      this.onResize();;
+    };
+
+    this.onResize = function () {
+      amtVisible = Math.max(1, Math.floor(wrapElem.width() / defaultWidth));
+
+      wrapElem.removeClass('show-1 show-2 show-3 show-4 show-5').addClass('show-' + amtVisible);
+      wrapElem.data('amtVisible', amtVisible);
+
+      clearTimeout(obj.to);
+      obj.to = setTimeout(function () {
+        wrapElem.removeClass('has-dragged');
+        slideWidth = slides.first().outerWidth();
+        obj.snapToCurrent();
+      }, 600);
+    };
+
+    this.startDrag = function (e, to, eo) {
+      if (e) {
+        e.preventDefault(); // fix android bug
+        e.stopPropagation();
+      }
+      if (amtVisible >= slides.length) {
+        return; // no drag!
+      }
+      if (!wrapElem.hasClass('has-dragged')) {
+        wrapElem.addClass('has-dragged');
+      }
+      wrapElem.addClass('is-dragging');
+
+      elem.removeClass('trans');
+      touchOrigin = e ? obj.getEventPos(e) : to;
+      elemOrigin = obj.getElemOrigin();
+      dragging = true;
+
+      elem.trigger('startDrag', [touchOrigin, elemOrigin]);
+    };
+
+    this.duringDrag = function (e, da) {
+      if (!dragging) return;
+
+      dragAmt = !e ? da : touchOrigin - obj.getEventPos(e);
+      var x = obj.getDraggingSlideNewPos();
+      obj.setPosition(x);
+    };
+
+    this.endDrag = function (e) {
+      dragging = false;
+      slideChanged = false;
+      wrapElem.removeClass('is-dragging');
+      if (Math.abs(dragAmt) > slideWidth / 3) {
+        obj.changeCurrentSlide();
+      }
+      obj.snapToCurrent();
+      elem.trigger('endDrag');
+    };
+
+    this.changeCurrentSlide = function () {
+      if (slideChanged) return;
+
+      dragAmt < 0 ? currSlide-- : currSlide++;
+
+      currSlide = Math.max(currSlide, 0);
+      currSlide = Math.min(currSlide, slides.length - amtVisible);
+
+      slideChanged = true;
+      elem.trigger('slideChanged', currSlide);
+    };
+
+    this.snapToCurrent = function () {
+      elem.addClass('trans');
+      var x = obj.getSnapPos();
+      obj.setPosition(x);
+    };
+
+    this.getElemOrigin = function () {
+      return {
+        x: elem.position().left,
+        y: elem.position().top };
+
+    };
+
+    this.getDraggingSlideNewPos = function () {
+      var newpos = { x: elemOrigin.x, y: elemOrigin.y };
+      newpos.x += dragAmt * -1;
+      return newpos.x;
+    };
+
+    this.getSnapPos = function () {
+      currSlide = Math.min(currSlide, slides.length - amtVisible);
+      return currSlide * slideWidth * -1;
+    };
+
+    /** Returns x pos where touch/click event occured */
+    this.getEventPos = function (e) {
+      return obj.getEvent(e).pageX;
+    };
+
+    /** Return touch or click event data */
+    this.getEvent = function (e) {
+      return isTouch ? e.touches[0] : e;
+    };
+
+    /** Position the carousel using 3d transforms where possible, otherwise 2d, otherwise left: px */
+    this.setPosition = function (x) {
+      if (Modernizr.csstransforms3d) {
+        elem.css(Modernizr.prefixed('transform'), 'translateX(' + x + 'px) translateZ(0px)');
+      } else
+      if (Modernizr.csstransforms) {
+        elem.css(Modernizr.prefixed('transform'), 'translateX(' + x + 'px)');
+      } else {
+        elem.css('left', x + 'px');
+      }
+    };
+  };
+})(jQuery);
+
+
+$(function () {
+
+  /**
+   * Map widget. Creates the Google map plus handles toggle photo/map functionality
+   * @param {css selector} el The article wrapper class for this widget.
+   */
+  var MAP = function (el) {
+    var obj = this;
+
+    /** Returns x pos where touch/click event occured */
+    this.el = $(el);
+    this.imgMask = $('.img-mask', this.el);
+    this.flap = $('#svg-flap', this.el);
+    this.map = null;
+    this.marker = null;
+    this.infowindow = null;
+    this.mapOptions = {
+      zoom: 16,
+      center: new google.maps.LatLng(51.532210, -0.177450) };
+
+
+    /** @constructor */
+    this.init = function () {
+
+      $(window).
+      on('resize', this.onResize);
+      obj.onResize();
+
+      this.initGmap();
+
+      // Toggle photo / map on click
+      obj.imgMask.on('click', function () {
+        obj.el.toggleClass('show-map');
+      });
+    };
+
+    this.onResize = function () {
+
+      clearTimeout(obj.resizeTimeout);
+      obj.resizeTimeout = setTimeout(function () {
+
+        // scale map to fit map into available view
+        obj.fitMap();
+
+        // Scale the svg flap for RWD
+        var scale = obj.el.width() / 966;
+        obj.flap.css(Modernizr.prefixed('transform'), 'translateY(-50%) scale(' + scale + ') rotate(-45deg)');
+
+        // Calculate right edge position of clip rect using Pythagorus
+        var clipW = obj.imgMask.width() * .917;
+        obj.imgMask.css('clip', 'rect(0px ' + clipW + 'px auto 0px)');
+
+      }, 300);
+    };
+
+    this.initGmap = function () {
+      // map
+      obj.map = new google.maps.Map(document.getElementById('gmap'), this.mapOptions);
+      // marker
+      obj.marker = new google.maps.Marker({
+        position: new google.maps.LatLng(51.532210, -0.177450),
+        map: obj.map,
+        title: "Abbey Road" });
+
+      // info window
+      obj.infowindow = new google.maps.InfoWindow({
+        content: '<p>Abbey Road Studios</p>' });
+
+      obj.infowindow.open(obj.map, obj.marker);
+      // events
+      google.maps.event.addListener(obj.marker, 'click', function () {
+        if (obj.infowindow.getMap()) {
+          obj.infowindow.close(obj.map, obj.marker);
+        } else {
+          obj.infowindow.open(obj.map, obj.marker);
+        }
+      });
+    };
+
+    /** Redraw the google map when the viewport changes size using fitBounds */
+    this.fitMap = function () {
+      var sw = new google.maps.LatLng(51.528998, -0.185062);
+      var ne = new google.maps.LatLng(51.535218, -0.170492);
+      var bnds = new google.maps.LatLngBounds(sw, ne);
+      obj.map.fitBounds(bnds);
+    };
+    this.init();
+  };
+
+  var app = {
+
+    // Parse the DOM now. Cache what we need for later.
+    body: $('body'),
+    offscreen: $('article, section', this.body).addClass('off-screen'),
+    repaint: $('#logo, #fact-list-h1', this.body),
+
+    prevScrollTop: 0,
+    timeouts: [],
+
+    /** @constructor */
+    init: function () {
+
+      if (!Modernizr.mq('only all')) {
+        $('html').addClass('no-mq');
+      }
+
+      // Handlers for window events
+      $(window).
+      on('load', function () {
+
+        $(this).trigger('resize');
+
+        // Trigger end preload / intro animation
+        app.body.addClass('remove-2013');
+        setTimeout(function () {
+          app.body.removeClass('is-loading remove-2013');
+        }, 1300);
+      }).
+      on('resize', function () {
+
+        if (Modernizr.touch) {
+          return;
+        }
+
+        app.setState('is-resizing', 600);
+      }).
+      on('scroll', function () {
+
+        // establish direction
+        var st = $(window).scrollTop(),
+        dir = st > app.prevScrollTop ? 'down' : 'up';
+
+        // toggle .is-scrolling-* state
+        app.setState('is-scrolling-' + dir);
+
+        // toggle .off-screen elements
+        for (var n = 0, l = app.offscreen.length; n < l; n++) {if (window.CP.shouldStopExecution(0)) break;
+          var $this = $(app.offscreen[n]);
+          if (app.isOffScreen($this)) {
+            $this.addClass('off-screen');
+          } else {
+            $this.removeClass('off-screen');
+          }
+        }
+
+        // cache prev scroll pos
+        window.CP.exitedLoop(0);app.prevScrollTop = st;
+      });
+
+      // Instantiate Beatles Abbey road map...
+      $('.map').each(function () {
+        app.map = new MAP(this);
+      });
+
+      // ...and the bullet list BULLETLIST
+      $('.bullet-list ul').swipe({
+        wrapSelector: '.bullet-list',
+        slideSelector: 'li' });
+
+    },
+
+    /**
+    * Manage application state classes on the body. These classes trigger CSS animations (e.g. is-loading, is-resizing, etc)
+    * @param {css selector} classname The class name that we will add to the body element
+    * @param {integer} delay The number of millisecons we should wait before removing the class
+    */
+    setState: function (classname, delay) {
+
+      if (!app.body.hasClass(classname)) {
+        app.body.addClass(classname);
+      }
+
+      // Remove previous uncompleted timeout if exists
+      if (typeof app.timeouts[classname] !== "undefined") {
+        clearTimeout(app.timeouts[classname]);
+      }
+      app.timeouts[classname] = setTimeout(function () {
+        if (app.body.hasClass(classname)) {
+          app.body.removeClass(classname);
+        }
+      }, delay || 300);
+    },
+
+    /**
+    * Animate the scrollbar to the position.top of a DOM element
+    * @param {css selector} el The element we want to scroll to the top of
+    * @param {integer} speed The duration of the scroll animation
+    * @param {string} ease Optional easing for the animation
+    */
+    scrollTo: function (el, speed, ease) {
+      if (!el) return;
+
+      var to = typeof el == 'number' ? el : $(el).position().top,
+      speed = speed || 500,
+      ease = ease || 'linear';
+      $('html, body').stop().animate({ 'scrollTop': to }, speed, ease);
+    },
+
+    /**
+    * Check to see if an element is currently outside of the viewport
+    * @param {css selector} el The element we want to check on
+    */
+    isOffScreen: function (el) {
+      var scrTop = $(window).scrollTop(),
+      elTop = $(el).offset().top,
+      elBtm = elTop + $(el).height(),
+      fold = $(window).height() + scrTop;
+      return fold <= elTop || elBtm < scrTop;
+    } };
+
+
+  // RUN!
+  app.init();
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
